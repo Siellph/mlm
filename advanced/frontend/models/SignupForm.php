@@ -16,6 +16,7 @@ class SignupForm extends Model
     public $phone;
     public $lastname;
     public $firstname;
+    public $payer;
 
 
     /**
@@ -26,29 +27,34 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => ''],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['firstname', 'trim'],
             ['firstname', 'required'],
-            ['firstname', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['firstname', 'unique', 'targetClass' => '\common\models\User', 'message' => ''],
             ['firstname', 'string', 'min' => 2, 'max' => 255],
 
             ['lastname', 'trim'],
             ['lastname', 'required'],
-            ['lastname', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['lastname', 'unique', 'targetClass' => '\common\models\User', 'message' => ''],
             ['lastname', 'string', 'min' => 2, 'max' => 255],
+
+            ['payer', 'trim'],
+            ['payer', 'required'],
+            ['payer', 'unique', 'targetClass' => '\common\models\User', 'message' => ''],
+            ['payer', 'string', 'min' => 5, 'max' => 35],
 
             ['phone', 'trim'],
             ['phone', 'required'],
-            ['phone', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['phone', 'unique', 'targetClass' => '\common\models\User', 'message' => ''],
             ['phone', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => ''],
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
@@ -72,6 +78,7 @@ class SignupForm extends Model
         $user->firstname = $this->firstname;
         $user->lastname = $this->lastname;
         $user->phone = $this->phone;
+        $user->payer = $this->payer;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();

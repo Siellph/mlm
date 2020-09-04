@@ -29,6 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     'mask' => '+7 (999) 999-9999',
                 ]) ?>
 
+                <?= $form->field($model, 'payer') ?>
+
                 <?= $form->field($model, 'email') ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
