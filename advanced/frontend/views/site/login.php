@@ -1,40 +1,36 @@
-<?php
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+    <title>Вход</title>
 
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-$this->title = 'Login';
-?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+  </head>
 
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
-</div>
+  <body class="text-center">
+    <form method="post" class="form-signin">
+      <img class="mb-4" src="img/logo1.png">
+      <h1 class="h3 mb-3 font-weight-normal">Пожалуйста войдите</h1>
+      <label for="inputEmail" class="sr-only">Логин</label>
+      <input type="text" id="inputEmail" class="form-control" placeholder="Логин..." required autofocus>
+      <label for="inputPassword" class="sr-only">Пароль</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Пароль..." required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Запомни меня
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020 Все права защищены</p>
+    </form>
+  </body>
+</html>
