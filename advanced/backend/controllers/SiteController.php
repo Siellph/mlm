@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use app\models\AllUsers11;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -94,5 +95,10 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionPlan11()
+    {
+        return $this->render('plan11');
     }
 }
